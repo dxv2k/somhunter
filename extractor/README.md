@@ -52,7 +52,8 @@ If required, edit the `config.yaml` file to change the paths to the downloaded m
 We assume there is a CUDA-capable card available for the computation. (If not, it is possible to modify the scripts to use much slower CPU computation.) Use `nvidia-docker` as available from https://github.com/NVIDIA/nvidia-docker .
 
 With the docker installed, you should be able to build the container by running the following command in the extractor directory (i.e. next to the `Dockerfile`):
-```sh
+```
+docker built -t tf1_py3/cuda100 tf1_py3_dockerfile 
 docker build -t somhunter/extractor .
 ```
 
