@@ -1,5 +1,5 @@
-FROM tensorflow/tensorflow:1.15.2-gpu-py3
-
+# FROM tensorflow/tensorflow:1.15.2-gpu-py3
+FROM tf1_py3/cuda100:latest 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     libsm6 \
