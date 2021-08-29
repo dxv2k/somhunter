@@ -1,3 +1,4 @@
+# Ref: https://github.com/aws/sagemaker-tensorflow-training-toolkit/blob/master/docker/1.15.2/py3/Dockerfile.gpu
 # Nvidia does not publish a TensorRT Runtime library for Ubuntu 18.04 with Cuda 10.1 support, so we stick with cuda 10.0.
 # https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/
 FROM nvidia/cuda:10.0-base-ubuntu18.04
