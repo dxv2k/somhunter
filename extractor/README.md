@@ -53,7 +53,7 @@ We assume there is a CUDA-capable card available for the computation. (If not, i
 
 With the docker installed, you should be able to build the container by running the following command in the extractor directory (i.e. next to the `Dockerfile`):
 ```
-docker built -t tf1_py3/cuda100 tf1_py3_dockerfile 
+docker build -t tf1_py3/cuda100 tf1_py3_dockerfile 
 docker build -t somhunter/extractor .
 ```
 
