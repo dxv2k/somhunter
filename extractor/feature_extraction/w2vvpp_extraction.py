@@ -82,7 +82,8 @@ class W2VVFeatureExtractor:
         norm = np.linalg.norm(vis_vecs, axis=1, keepdims=True)
         vis_vecs_normed = vis_vecs / norm
 
-        pca = decomposition.PCA(n_components=self._n_components)
+        # pca = decomposition.PCA(n_components=self._n_components)
+        pca = decomposition.PCA()
         vis_vecs_normed_pca = pca.fit_transform(vis_vecs_normed)
 
         norm = np.linalg.norm(vis_vecs_normed_pca, axis=1, keepdims=True)
