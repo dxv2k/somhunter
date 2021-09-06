@@ -35,6 +35,12 @@ the following articles helpful:
   [SOMHunter V2 at Video Browser Showdown 2021](https://link.springer.com/chapter/10.1007/978-3-030-67835-7_45). 
   In *International Conference on Multimedia Modeling* (pp. 461-466). Springer, Cham.
 
+## Use index file: 
+Create symlink for `data/v3c1_w2vv` & `public/thumbs_v3c1` then run docker: 
+```
+docker run -ti --rm -p8080:8080 -v /mlcv/WorkingSpace/Personals/vuquang/v3c1:/opt/somhunter/data/v3c1_w2vv   dxv_somhunter/main:latest 
+```
+
 ## Try SOMHunter from Docker ![image size](https://img.shields.io/docker/image-size/exaexa/somhunter) ![latest version](https://img.shields.io/docker/v/exaexa/somhunter) ![pulls](https://img.shields.io/docker/pulls/exaexa/somhunter)
 
 
