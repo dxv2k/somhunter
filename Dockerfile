@@ -14,6 +14,13 @@ RUN sh -c 'cd /opt/somhunter && rm -fr .git node_modules build logs/* vbs-log/* 
 
 RUN echo "alias python=python2" >> ~/.bashrc 
 
+RUN npm cache clean --force
+
+# Create `data/v3c1_w2vv` symlink 
+RUN ln -s '/mlcv/WorkingSpace/Personals/vuquang/v3c1/' '/opt/somhunter/data/v3c1_w2vv'
+# Create `public/thumbs_v3c1` symlink  
+RUN ln -s '/mlcv/WorkingSpace/Personals/vuquang/v3c1/thumbs' '/opt/somhunter/public/thumbs_v3c1'
+
 RUN sh -c 'cd /opt/somhunter && npm install --unsafe-perm'
 
 EXPOSE 8080
