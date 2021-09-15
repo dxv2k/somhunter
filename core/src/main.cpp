@@ -24,25 +24,32 @@
 #include <stdio.h>
 #include <thread>
 
-#if 0
+#if 1
 void
 print_display(const FramePointerRange &d)
 {
-	for (auto iter = d.begin(); iter != d.end(); iter++)
+	int cnt = 0; 
+	for (auto iter = d.begin(); iter != d.end(); iter++) {
+		cnt += 1;
 		std::cout << (*iter)->frame_ID << std::endl;
+	}
+	std::cout << "LENGTH " << cnt << std::endl; 
 }
 #endif
 
 int
 main()
 {
-#if 0
+#if 1
+	std::cout << "Hello world!" << std::endl;
 	debug("this is debug log");
 	info("this is info log");
 	warn("this is warn log");
 	// Assuming root of your project is `build/src/`...
 	// Change this accordingly
-	const std::string cfg_fpth{ "../../config.json" };
+	auto cfg_path = "D:/somhunter/config.json"; 
+	//const std::string cfg_fpth{ "../../config.json" };
+	const std::string cfg_fpth{cfg_path};
 
 	// Parse config file
 	auto config = Config::parse_json_config(cfg_fpth);
@@ -53,12 +60,14 @@ main()
 	// Test features here...
 
 	// Try autocomplete
+	std::cout << "AUTO COMPLETE \n" << std::endl; 
 	auto ac_res{ core.autocomplete_keywords("cat", 30) };
 	for (auto &&p_kw : ac_res) {
 		std::cout << p_kw->synset_strs.front() << std::endl;
 	}
 
 	// Try keyword rescore
+	std::cout << "RESCORE \n" << std::endl; 
 	core.rescore("dog park");
 
 	// Try different displays
@@ -66,6 +75,9 @@ main()
 	std::cout << "TOP N\n";
 	print_display(d_topn);
 
+	// BUG 
+	//auto d_topknn = core.get_display(DisplayType::DTopKNN, 2, 0);
+	core.reset_search_session(); 
 	auto d_topknn = core.get_display(DisplayType::DTopKNN, 2, 0);
 	std::cout << "TOP KNN\n";
 	print_display(d_topknn);
@@ -76,6 +88,7 @@ main()
 
 	// Try keyword rescore
 	core.rescore("dog park");
+	//core.rescore("cat");
 
 	d_topn = core.get_display(DisplayType::DTopN, 0, 0);
 	std::cout << "TOP N\n";
