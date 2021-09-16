@@ -94,20 +94,15 @@ public:
 		std::vector<size_t> per_vid_frame_hist(num_videos, 0);
 		std::map<VideoId, std::map<ShotId, size_t>> frames_per_shot;
 
-		// TOPKNN_LIMIT is over 10 000 (? if I remember)  
-		// and much greater than vector q3.size() 
-		// but still when I try to iterate through q3.size() 
-		// can found out where q3 error exactly 
-		// TOPKNN_LIMIT = 100 seem to be working properly
-		auto KNN_LIMIT = q3.size() / 2;
-
-		//while (res.size() < TOPKNN_LIMIT) {
-		while (res.size() < KNN_LIMIT) {
+		while (res.size() < TOPKNN_LIMIT) {
 			//std::cout << res.size() << std::endl; 
-			auto [adept_ID, f]{ q3.top() };
+			//auto [adept_ID, f]{ q3.top() };
 
 			if (q3.empty())
 				break;
+			
+			// Fix by check q3 empty first then perform top()  
+			auto [adept_ID, f]{ q3.top() };
 
 			q3.pop();
 

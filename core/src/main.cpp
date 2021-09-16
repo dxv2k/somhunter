@@ -75,10 +75,8 @@ main()
 	std::cout << "TOP N\n";
 	print_display(d_topn);
 
-	// BUG 
 	//auto d_topknn = core.get_display(DisplayType::DTopKNN, 2, 0);
-	core.reset_search_session(); 
-	auto d_topknn = core.get_display(DisplayType::DTopKNN, 2, 0);
+	auto d_topknn = core.get_display(DisplayType::DTopKNN, 0, 0);
 	std::cout << "TOP KNN\n";
 	print_display(d_topknn);
 
@@ -88,7 +86,6 @@ main()
 
 	// Try keyword rescore
 	core.rescore("dog park");
-	//core.rescore("cat");
 
 	d_topn = core.get_display(DisplayType::DTopN, 0, 0);
 	std::cout << "TOP N\n";
