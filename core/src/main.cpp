@@ -41,7 +41,6 @@ int
 main()
 {
 #if 1
-	std::cout << "Hello world!" << std::endl;
 	debug("this is debug log");
 	info("this is info log");
 	warn("this is warn log");
