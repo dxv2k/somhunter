@@ -25,6 +25,7 @@ SET(HEADERS
 	utils.h
 	log.h
 	json11.hpp
+	DatasetOCR.h 
 )
 
 SET(SOURCES
@@ -39,14 +40,15 @@ SET(SOURCES
 	Submitter.cpp
 	main.cpp
 	json11.cpp
+	DatasetOCR.cpp
 )
 
 #create the program
 add_executable(somhunter
 	${TextExample_RESOURCES}
 	${SOURCES}
-	${HEADERS}
-	)
+	${HEADERS} 
+)
 
 set_target_properties(somhunter PROPERTIES CXX_STANDARD 17)
 

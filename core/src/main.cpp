@@ -23,7 +23,7 @@
 #include <chrono>
 #include <stdio.h>
 #include <thread>
-
+#include "DatasetOCR.h"
 #if 1
 void
 print_display(const FramePointerRange &d)
@@ -37,10 +37,12 @@ print_display(const FramePointerRange &d)
 }
 #endif
 
-int
+int 
 main()
 {
-#if 1
+	auto data_ocr_path = "D:/somhunter/data/OCR/00001.json";
+	parse_json_dataset(data_ocr_path); 
+#if 0
 	debug("this is debug log");
 	info("this is info log");
 	warn("this is warn log");

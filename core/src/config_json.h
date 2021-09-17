@@ -25,6 +25,8 @@
 #include <stdexcept>
 #include <string>
 
+
+
 #include "json11.hpp"
 
 #include "log.h"
@@ -106,7 +108,7 @@ Config::parse_json_config(const std::string &filepath)
 		throw std::runtime_error(msg);
 	}
 
-	// Rad the whole file
+	// Read the whole file
 	ifs.seekg(0, std::ios::end);
 	size_t size = ifs.tellg();
 
